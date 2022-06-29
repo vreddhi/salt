@@ -22,7 +22,7 @@ resource "aws_instance" "webapp-instance" {
     subnet_id = "${aws_subnet.public-subnet-1.id}"
     vpc_security_group_ids = ["${aws_security_group.webapp-securitygroup.id}"]  
     user_data = "${file("init.sh")}"
-    associate_public_ip_address = true  
+    #associate_public_ip_address = true  
     tags = {
         Environment = "production"
         Project = "webapp"

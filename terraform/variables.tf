@@ -1,5 +1,10 @@
 # Define all the variables here
 
+variable "ipaddress" {
+    default = "54.167.235.53"
+}
+
+
 variable "region" {
     default = "us-east-1"
 }
