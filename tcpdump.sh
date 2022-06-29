@@ -4,7 +4,7 @@
 die() { status=$1; shift; echo "FATAL: $*"; exit $status; }
 
 # Replace with actual bucket name
-BUCKET_NAME="my-bucket";
+BUCKET_NAME="vb-testbucket";
 # Get instance id
 INSTANCE_ID="EC2"
 # Init temp file

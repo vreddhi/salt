@@ -37,7 +37,7 @@ resource "aws_instance" "sensor-instance" {
     instance_type = "t3.micro"
     key_name = aws_key_pair.deployer.key_name
     subnet_id = "${aws_subnet.public-subnet-1.id}"
-    vpc_security_group_ids = ["${aws_security_group.webapp-securitygroup.id}"]  
+    vpc_security_group_ids = ["${aws_security_group.sensor-securitygroup.id}"]  
     user_data = "${file("backup_pcap.sh")}"
     #associate_public_ip_address = false
     tags = {
