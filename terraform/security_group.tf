@@ -34,3 +34,28 @@ resource "aws_security_group" "webapp-securitygroup" {
   }
 
 }
+
+resource "aws_security_group" "sensor-securitygroup" {
+  vpc_id = "${aws_vpc.private-cloud.id}"
+  name = "sensor-securitygroup"
+  description = "security group that allows access from webserver"
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    security_groups = ["${aws_security_group.webapp-securitygroup.id}"]
+  }
+  
+  tags = {
+      Environment = "production"
+      Project = "webapp"
+  }
+
+}

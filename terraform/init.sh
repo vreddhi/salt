@@ -1,11 +1,11 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install git
+sudo apt install git -y
 
 cd /home/ubuntu
 
-sudo apt install docker.io
+sudo apt install docker.io -y
 git clone https://github.com/vreddhi/salt.git
 
 cd salt
