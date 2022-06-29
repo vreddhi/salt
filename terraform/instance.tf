@@ -21,7 +21,7 @@ resource "aws_instance" "webapp-instance" {
     key_name = aws_key_pair.deployer.key_name
     subnet_id = "${aws_subnet.public-subnet-1.id}"
     vpc_security_group_ids = ["${aws_security_group.webapp-securitygroup.id}"]  
-    user_data = "${data.template_file.ec2_user_data.rendered}"
+    user_data = "${file("init.sh")}"
     associate_public_ip_address = true  
     tags = {
         Environment = "production"
