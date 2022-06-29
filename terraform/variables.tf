@@ -4,6 +4,9 @@ variable "ipaddress" {
     default = "54.167.235.53"
 }
 
+variable "sensor-ipaddress" {
+    default = "3.89.77.39"
+}
 
 variable "region" {
     default = "us-east-1"

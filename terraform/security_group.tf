@@ -53,6 +53,13 @@ resource "aws_security_group" "sensor-securitygroup" {
     security_groups = ["${aws_security_group.webapp-securitygroup.id}"]
   }
   
+  ingress {
+    from_port = 4789
+    to_port = 4789
+    protocol = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags = {
       Environment = "production"
       Project = "webapp"
