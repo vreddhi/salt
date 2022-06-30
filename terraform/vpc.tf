@@ -23,7 +23,19 @@ resource "aws_subnet" "public-subnet-1" {
         Environment = "production"
         Project = "webapp"
     }
+}
 
+#Define backup subnet in another zone
+resource "aws_subnet" "public-subnet-2" {
+  vpc_id = "${aws_vpc.private-cloud.id}"
+  cidr_block = "10.0.3.0/24"
+  map_public_ip_on_launch = "true"
+  availability_zone = "${var.backup-availability-zone}"
+
+    tags = {
+        Environment = "production"
+        Project = "webapp"
+    }
 }
 
 #Define private subnet
@@ -69,5 +81,11 @@ resource "aws_route_table" "main-route" {
 # Link the subnet with Route table
 resource "aws_route_table_association" "public-subnet-link" {
   subnet_id = "${aws_subnet.public-subnet-1.id}"
+  route_table_id = "${aws_route_table.main-route.id}"
+}
+
+# Link the subnet with Route table
+resource "aws_route_table_association" "public-subnet-link-2" {
+  subnet_id = "${aws_subnet.public-subnet-2.id}"
   route_table_id = "${aws_route_table.main-route.id}"
 }

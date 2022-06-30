@@ -23,3 +23,11 @@ variable "backup-availability-zone" {
 variable "ami-id" {
     default = "ami-052efd3df9dad4825"
 }
+
+variable "domain-name" {
+    default = "securecodezone.com"
+}
+
+variable "sub-domain-name" {
+    default = "www.securecodezone.com"
+}
