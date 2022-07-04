@@ -47,7 +47,7 @@ resource "aws_iam_role" "ec2_role" {
 #Further attach the permission policy created above to the role
 resource "aws_iam_policy_attachment" "ec2-policy-attach" {
   name       = "ec2-policy-attachment"
-  roles      = [ec2_role.role.name]
+  roles      = [aws_iam_role.ec2_role.name]
   policy_arn = aws_iam_policy.ec2-policy.arn
 }
 
