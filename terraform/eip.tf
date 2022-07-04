@@ -1,4 +1,4 @@
-#Allocate Elastic ip
+#Allocate Elastic ips
 
 data "aws_eip" "static_ip" {
   public_ip = "${var.ipaddress}"
@@ -20,5 +20,10 @@ resource "aws_eip_association" "eip_assoc" {
 
 #The ip address of EC2 server
 output "webapp-ip" {
-  value = ["${var.ipaddress}"]
+  value = ["${data.aws_eip.static_ip.public_ip}"]
+}
+
+#The ip address of EC2 server
+output "sensor-ip" {
+  value = ["${data.aws_eip.sensor_ip.public_ip}"]
 }

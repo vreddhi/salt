@@ -20,6 +20,10 @@ variable "backup-availability-zone" {
     default = "us-east-1b"
 }
 
+variable "instance-type" {
+    default = "t3.micro"
+}
+
 variable "ami-id" {
     default = "ami-052efd3df9dad4825"
 }

@@ -14,7 +14,7 @@ sudo touch temp.pcap
 while true :
 do
   # Capture 50 packets
-  sudo tcpdump -i ens5 -w temp.pcap -c 50 port 4789
+  sudo tcpdump -i ens5 -w temp.pcap -G 30 port 4789
 
   # Build filename
   YEAR=$(date +%Y);

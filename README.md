@@ -1,6 +1,15 @@
 # AWS Infrastructure to setup Traffic Mirroring
 
-This repository contains terraform code to provison AWS resources.
+Traffic mirroring is a way to mirror/capture traffic of interest on a server.
+
+The traffic mirror targets are the destinations for mirrored traffic. An Elastic Network Interface or Network Load Balancer can serve as mirror targets. A mirror target can reside in the same AWS account or routed to another AWS account. 
+
+The traffic is forwarded to UDP port 4789 on the target.  The inbound traffic must be allowed in the target’s Security Group.
+
+VXLAN traffic is essentially just a UDP packet with encapsulated data. Any normal network capture tool, such as tcpdump, can capture and view the data.
+
+
+This repository contains terraform code to provison AWS resources to serve the above purpose.
 Following are the details of individual files.
 
 1. vpc.tf : Provisions VPC, subnets, routetable(s) needed
