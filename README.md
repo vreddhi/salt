@@ -1,5 +1,7 @@
 # AWS Infrastructure to setup Traffic Mirroring
 
+![image](https://user-images.githubusercontent.com/686180/177208895-3507e83d-099e-4c2f-bd50-0a5ad59fdd22.png)
+
 Traffic mirroring is a way to mirror/capture traffic of interest on a server.
 
 The traffic mirror targets are the destinations for mirrored traffic. An Elastic Network Interface or Network Load Balancer can serve as mirror targets. A mirror target can reside in the same AWS account or routed to another AWS account. 
@@ -23,3 +25,4 @@ Following are the details of individual files.
 8. reverse_proxy.sh : A post bootup script, that installs docker and runs a reverse proxy nginx server
 
 Further there is a simple docker file, which uses vanilla nginx and copies a custom configuration file to passthough all the requests, to ensure the reverse proxy is setup.
+
